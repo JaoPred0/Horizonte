@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import faqs from './../data/faq.json'; // Import the FAQ data from JSON file
+import emailjs from '@emailjs/browser';
 
 const ContactAndFAQ = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const formRef = useRef(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        setTimeout(() => {
-            setIsSubmitting(false);
-            setIsSuccess(true);
-            setTimeout(() => setIsSuccess(false), 3000); // Hide success after 3 seconds
-        }, 3000);
+
+        emailjs.sendForm(
+            import.meta.env.VITE_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+            formRef.current,
+            import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        )
+            .then(() => {
+                setIsSuccess(true);
+                setIsSubmitting(false);
+                formRef.current.reset();
+                setTimeout(() => setIsSuccess(false), 3000);
+            })
+            .catch(() => {
+                setIsSubmitting(false);
+            });
     };
 
     // Variants for Framer Motion animations
@@ -89,7 +102,14 @@ const ContactAndFAQ = () => {
                                 </svg>
                                 Contato
                             </h2>
-                            <form onSubmit={handleSubmit} className="space-y-6 flex flex-col flex-1">
+                            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6 flex flex-col flex-1">
+                                {/* TITLE */}
+                                <input type="hidden" name="title" value="Nova mensagem do site" />
+
+                                {/* TIME */}
+                                <input type="hidden" name="time" value={new Date().toLocaleString()} />
+
+                                {/* NAME */}
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text text-gray-700 font-medium flex items-center">
@@ -100,11 +120,15 @@ const ContactAndFAQ = () => {
                                         </span>
                                     </label>
                                     <input
+                                        name="name"
                                         type="text"
+                                        required
                                         placeholder="Seu nome completo"
                                         className="input input-bordered bg-gradient-to-r from-white to-gray-50 border-2 border-indigo-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:shadow-md w-full"
                                     />
                                 </div>
+
+                                {/* EMAIL */}
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text text-gray-700 font-medium flex items-center">
@@ -116,12 +140,16 @@ const ContactAndFAQ = () => {
                                         </span>
                                     </label>
                                     <input
+                                        name="email"
                                         type="email"
+                                        required
                                         placeholder="seu@email.com"
                                         className="input input-bordered bg-gradient-to-r from-white to-gray-50 border-2 border-indigo-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:shadow-md w-full"
                                     />
                                 </div>
-                                <div className="form-control">
+
+                                {/* MESSAGE */}
+                                <div className="form-control flex-1">
                                     <label className="label">
                                         <span className="label-text text-gray-700 font-medium flex items-center">
                                             <svg className="w-5 h-5 mr-2 text-indigo-500" fill="currentColor" viewBox="0 0 20 20">
@@ -131,11 +159,15 @@ const ContactAndFAQ = () => {
                                         </span>
                                     </label>
                                     <textarea
-                                        className="textarea textarea-bordered bg-gradient-to-r from-white to-gray-50 border-2 border-indigo-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:shadow-md resize-none w-full"
-                                        placeholder="Digite sua mensagem aqui..."
+                                        name="message"
                                         rows="4"
-                                    ></textarea>
+                                        required
+                                        placeholder="Digite sua mensagem aqui..."
+                                        className="textarea textarea-bordered bg-gradient-to-r from-white to-gray-50 border-2 border-indigo-200 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 rounded-xl shadow-sm transition-all duration-300 ease-in-out hover:shadow-md resize-none w-full"
+                                    />
                                 </div>
+
+                                {/* BUTTON */}
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}

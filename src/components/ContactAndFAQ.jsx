@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import faqs from './../data/faq.json'; // Import the FAQ data from JSON file
 
 const ContactAndFAQ = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -14,46 +15,6 @@ const ContactAndFAQ = () => {
             setTimeout(() => setIsSuccess(false), 3000); // Hide success after 3 seconds
         }, 3000);
     };
-
-    // FAQ data - easy to add more questions here
-    const faqs = [
-        {
-            question: "Como criar uma conta?",
-            answer: "Clique no botão \"Cadastrar\" no canto superior direito e siga o processo de registro."
-        },
-        {
-            question: "Esqueci minha senha. O que fazer?",
-            answer: "Clique em \"Esqueci a Senha\" na página de login e siga as instruções enviadas para seu e-mail."
-        },
-        {
-            question: "Como atualizar minhas informações de perfil?",
-            answer: "Vá para as configurações de \"Minha Conta\" e selecione \"Editar Perfil\" para fazer alterações."
-        },
-        {
-            question: "Quais são os benefícios de ter uma conta premium?",
-            answer: "Com uma conta premium, você tem acesso a recursos exclusivos, como downloads ilimitados e suporte prioritário."
-        },
-        {
-            question: "Como cancelar minha assinatura?",
-            answer: "Acesse as configurações de conta e selecione \"Gerenciar Assinatura\" para cancelar a qualquer momento."
-        },
-        {
-            question: "O serviço está disponível em outros países?",
-            answer: "Sim, oferecemos suporte global, mas verifique a disponibilidade na sua região através do site."
-        },
-        {
-            question: "Como reportar um problema técnico?",
-            answer: "Use o formulário de contato ao lado ou envie um e-mail para suporte@exemplo.com com detalhes do problema."
-        },
-        {
-            question: "Há tutoriais disponíveis para novos usuários?",
-            answer: "Sim, acesse a seção \"Tutoriais\" no menu principal para guias passo a passo."
-        },
-        {
-            question: "Como alterar meu endereço de e-mail?",
-            answer: "Vá para \"Configurações de Conta\" e clique em \"Alterar E-mail\" para atualizar suas informações."
-        }
-    ];
 
     // Variants for Framer Motion animations
     const containerVariants = {
@@ -74,7 +35,7 @@ const ContactAndFAQ = () => {
 
     return (
         <motion.div
-            className="min-h-screen py-12 px-4 flex items-center justify-center"
+            className="min-h-screen py-12 px-4 flex items-center justify-center bg-gradient-to-br from-indigo-50 via-white to-cyan-50"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -86,13 +47,12 @@ const ContactAndFAQ = () => {
                drop-shadow-lg my-12">
                         Contato & FAQ
                     </h2>
-
                 </div>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     {/* FAQ Section */}
                     <motion.div
                         variants={itemVariants}
-                        className="card bg-white shadow-xl rounded-2xl p-6 border border-gray-200 flex flex-col"
+                        className="card bg-white shadow-2xl rounded-3xl p-8 border border-gray-200 flex flex-col hover:shadow-3xl transition-shadow duration-300"
                     >
                         <div className="card-body flex-1">
                             <h2 className="card-title text-2xl font-semibold text-indigo-600 mb-6 flex items-center justify-center">
@@ -101,15 +61,14 @@ const ContactAndFAQ = () => {
                                 </svg>
                                 FAQ - Perguntas Frequentes
                             </h2>
-                            <div className="space-y-2 overflow-y-auto max-h-96">
+                            <div className="space-y-3 overflow-y-auto max-h-96">
                                 {faqs.map((faq, index) => (
-                                    <div key={index} className="collapse collapse-arrow bg-base-100 border border-base-300 rounded-lg shadow-sm">
-                                        <input type="radio" name="my-accordion-1" defaultChecked={index === 0} />
-                                        <div className="collapse-title text-lg font-medium text-gray-700 hover:bg-indigo-50 transition-colors">
+                                    <div key={index} className="collapse collapse-arrow bg-gradient-to-r from-gray-50 to-white border border-gray-300 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200">
+                                        <input type="radio" name="my-accordion-1" />
+                                        <div className="collapse-title text-lg font-medium text-gray-800 hover:text-indigo-600 transition-colors cursor-pointer py-4 px-6">
                                             {faq.question}
                                         </div>
-                                        <div className="collapse-content text-sm text-gray-600">
-                                            {faq.answer}
+                                        <div className="collapse-content px-6 pb-4" dangerouslySetInnerHTML={{ __html: faq.answer }}>
                                         </div>
                                     </div>
                                 ))}
@@ -120,7 +79,7 @@ const ContactAndFAQ = () => {
                     {/* Contact Section */}
                     <motion.div
                         variants={itemVariants}
-                        className="card bg-white shadow-xl rounded-2xl p-6 border border-gray-200 flex flex-col"
+                        className="card bg-white shadow-2xl rounded-3xl p-8 border border-gray-200 flex flex-col hover:shadow-3xl transition-shadow duration-300"
                     >
                         <div className="card-body flex-1">
                             <h2 className="card-title text-2xl font-semibold text-indigo-600 mb-6 flex items-center justify-center">

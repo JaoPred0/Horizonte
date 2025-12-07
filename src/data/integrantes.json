@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Luiz Paulo Delfino Aguiar",
+    "album": "Presidente",
+    "image": "/assets/LUIZ-PAULO.jpg"
+  },
+  {
+    "name": "Pedro Issamu",
+    "album": "Vice-Presidente",
+    "image": "/assets/ISSAMU.jpg"
+  },
+  {
+    "name": "Emilly Ribeiro Leite",
+    "album": "Secretário Geral",
+    "image": "/assets/EMILLY.jpg"
+  },
+  {
+    "name": "Vitória Oris Freitas De Lima",
+    "album": "1º Secretário",
+    "image": "/assets/VITORIA.jpg"
+  },
+  {
+    "name": "Ian Henrique sestari Dias",
+    "album": "Tesoureiro",
+    "image": "/assets/IAN.jpg"
+  },
+  {
+    "name": "Sofia Portilho Souza",
+    "album": "1º Tesoureiro",
+    "image": "/assets/SOFIA.jpg"
+  },
+  {
+    "name": "Ellen Reis Cercunhuk Gomes",
+    "album": "Diretor SocioCultural",
+    "image": "/assets/ELLEN.jpg"
+  },
+  {
+    "name": "Lyan Della Libera Vargas",
+    "album": "Diretor de Comunicação e Imprensa",
+    "image": "/assets/LYAN.jpg"
+  },
+  {
+    "name": "Thaila Fernandes Capistânio",
+    "album": "Diretor de Saúde e Meio Ambiente",
+    "image": "/assets/THAILA.jpg"
+  },
+  {
+    "name": "Jeferson Manfre",
+    "album": " Diretor de Políticas Educacionais",
+    "image": "/assets/JEFERSON.jpg"
+  },
+  {
+    "name": "João Gustavo Araújo dos Santos",
+    "album": "Diretor de Cultura, Esporte e Lazer",
+    "image": "/assets/JOAO.jpg"
+  }
+]

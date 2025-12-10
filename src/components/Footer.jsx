@@ -107,9 +107,18 @@ const Footer = () => {
                         className="border-t border-gray-700 mt-12 pt-8 text-center"
                     >
                         <p className="text-gray-400 text-xs">
-                            &copy; 2023 Horizonte. Todos os direitos reservados. Desenvolvido com ❤️ por João Pedro Cristaldo Ferraz.
+                            &copy; 2023 Horizonte. Todos os direitos reservados. Desenvolvido com ❤️ por{" "}
+                            <a
+                                href="https://www.instagram.com/jaoo.predo"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-blue-400 hover:text-blue-300 transition underline"
+                            >
+                                João Pedro Cristaldo Ferraz
+                            </a>.
                         </p>
                     </motion.div>
+
                 </div>
                 <div className="relative z-10 flex items-center justify-center h-full">
                     <TextPressure

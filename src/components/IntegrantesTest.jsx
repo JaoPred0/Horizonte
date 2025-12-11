@@ -2,39 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis';
 import { motion } from 'framer-motion';
 
-// Dummy data for participants (integrantes)
-const participantes = [
-  {
-    id: 1,
-    name: 'João Silva',
-    role: 'Presidente',
-    description: 'Responsável pela liderança e coordenação geral.',
-    image: 'https://via.placeholder.com/150', // Replace with actual image URL
-  },
-  {
-    id: 2,
-    name: 'Maria Oliveira',
-    role: 'Vice-Presidente',
-    description: 'Auxilia na gestão e organização de eventos.',
-    image: 'https://via.placeholder.com/150',
-  },
-  {
-    id: 3,
-    name: 'Carlos Santos',
-    role: 'Secretário',
-    description: 'Cuida da documentação e comunicação interna.',
-    image: 'https://via.placeholder.com/150',
-  },
-  {
-    id: 4,
-    name: 'Ana Costa',
-    role: 'Tesoureira',
-    description: 'Gerencia as finanças e orçamento.',
-    image: 'https://via.placeholder.com/150',
-  },
-  // Add more participants as needed
-];
-
 const IntegrantesTest = () => {
   const containerRef = useRef(null);
 

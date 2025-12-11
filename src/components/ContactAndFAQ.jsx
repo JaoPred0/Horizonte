@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import faqs from './../data/faq.json'; // Import the FAQ data from JSON file
+import faqs from './../data/faq.json'; 
 import emailjs from '@emailjs/browser';
 
 const ContactAndFAQ = () => {

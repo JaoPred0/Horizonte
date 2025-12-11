@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRightIcon } from '@heroicons/react/24/outline'; // Added import for Heroicons
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import LogoMagnet from './LogoMagnet';
 import TextPressure from './bits/TextPressure';
 

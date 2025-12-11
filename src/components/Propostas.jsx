@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import propostas from './../data/proposta.json'; // Importe o JSON aqui
+import propostas from './../data/proposta.json';
 
 const Propostas = () => {
     const sectionRef = useRef(null);
@@ -37,7 +37,7 @@ const Propostas = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    const categories = propostas; // Use o JSON importado
+    const categories = propostas;
 
     // Flatten subproposals for indexing
     const allSubproposals = categories.flatMap(cat => cat.subproposals);

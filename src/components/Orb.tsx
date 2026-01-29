@@ -8,7 +8,7 @@ export default function Orb({
   forceHoverState = false,
   backgroundColor = '#000000'
 }) {
-  const ctnDom = useRef(null);
+  const ctnDom = useRef<HTMLDivElement>(null);
 
   const vert = /* glsl */ `
     precision highp float;
@@ -229,7 +229,7 @@ export default function Orb({
     let currentRot = 0;
     const rotationSpeed = 0.3;
 
-    const handleMouseMove = e => {
+    const handleMouseMove = (e: MouseEvent) => {
       const rect = container.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -255,8 +255,8 @@ export default function Orb({
     container.addEventListener('mousemove', handleMouseMove);
     container.addEventListener('mouseleave', handleMouseLeave);
 
-    let rafId;
-    const update = t => {
+    let rafId: number;
+    const update = (t: number) => {
       rafId = requestAnimationFrame(update);
       const dt = (t - lastTime) * 0.001;
       lastTime = t;
@@ -291,13 +291,13 @@ export default function Orb({
   return <div ref={ctnDom} className="w-full h-full" />;
 }
 
-function hslToRgb(h, s, l) {
+function hslToRgb(h: number, s: number, l: number) {
   let r, g, b;
 
   if (s === 0) {
     r = g = b = l;
   } else {
-    const hue2rgb = (p, q, t) => {
+    const hue2rgb = (p: number, q: number, t: number): number => {
       if (t < 0) t += 1;
       if (t > 1) t -= 1;
       if (t < 1 / 6) return p + (q - p) * 6 * t;
@@ -316,7 +316,7 @@ function hslToRgb(h, s, l) {
   return new Vec3(r, g, b);
 }
 
-function hexToVec3(color) {
+function hexToVec3(color: string) {
   if (color.startsWith('#')) {
     const r = parseInt(color.slice(1, 3), 16) / 255;
     const g = parseInt(color.slice(3, 5), 16) / 255;

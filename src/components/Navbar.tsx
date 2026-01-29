@@ -10,7 +10,8 @@ import { Menu, X } from 'lucide-react';
 // Cores
 const COLORS = {
   background: '#020109',           // Cor de fundo principal
-  gradientTo: 'blue-600',        // Fim do gradiente
+  gradientFrom: 'blue-500',        // Início do gradiente
+  gradientTo: 'blue-600',          // Fim do gradiente
 };
 
 // Itens do Menu

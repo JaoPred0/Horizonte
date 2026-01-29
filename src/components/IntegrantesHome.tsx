@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 
 const teamMembers = [
@@ -25,7 +25,7 @@ const teamMembers = [
 ];
 
 const IntegrantesHome = () => {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const gridRef = useRef(null);
   const isInView = useInView(gridRef, { once: true, margin: "-100px" });
 
@@ -106,7 +106,15 @@ const IntegrantesHome = () => {
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 50, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                animate={
+                  isInView
+                    ? {
+                      opacity: 1,
+                      y: 0,
+                      scale: hoveredIndex === index ? 1.08 : 1
+                    }
+                    : {}
+                }
                 transition={{
                   delay: index * 0.15,
                   duration: 0.6,

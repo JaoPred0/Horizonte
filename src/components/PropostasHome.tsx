@@ -1,4 +1,3 @@
-import React from 'react';
 import ScrollStack, { ScrollStackItem } from './Scrollstack';
 import { motion } from 'framer-motion';
 

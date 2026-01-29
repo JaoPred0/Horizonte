@@ -1,4 +1,3 @@
-import React from 'react'
 import Orb from './Orb'
 
 export const OrbBackground = () => {

@@ -47,9 +47,9 @@ const propostas = [
 
 export const PropostasHome = () => {
   return (
-    <div className="relative bg-[#010f3f]">
+    <div className="relative">
       {/* Header fixo - sempre visível */}
-      <div className="sticky top-0 z-[60] py-6 md:py-10 lg:py-12 bg-gradient-to-b from-[#010f3f] via-[#010f3f] to-[#010f3f]/90 backdrop-blur-lg border-b border-white/5">
+      <div className="sticky top-0 z-[60] py-6 md:py-10 lg:py-12backdrop-blur-lg border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: -20 }}

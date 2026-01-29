@@ -1,13 +1,40 @@
 import { useLayoutEffect, useRef, useCallback } from 'react';
 import Lenis from 'lenis';
 
-export const ScrollStackItem = ({ children, itemClassName = '' }) => (
+interface ScrollStackItemProps {
+  children: React.ReactNode;
+  itemClassName?: string;
+}
+
+export const ScrollStackItem = ({ children, itemClassName = '' }: ScrollStackItemProps) => (
   <div
     className={`scroll-stack-card relative w-full h-80 my-8 p-12 rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top ${itemClassName}`.trim()}
   >
     {children}
   </div>
 );
+
+interface ScrollStackProps {
+  children: React.ReactNode;
+  className?: string;
+  itemDistance?: number;
+  itemScale?: number;
+  itemStackDistance?: number;
+  stackPosition?: string;
+  scaleEndPosition?: string;
+  baseScale?: number;
+  rotationAmount?: number;
+  blurAmount?: number;
+  useWindowScroll?: boolean;
+  onStackComplete?: () => void;
+}
+
+interface CardState {
+  translateY: number;
+  scale: number;
+  rotation: number;
+  blur: number;
+}
 
 const ScrollStack = ({
   children,
@@ -22,23 +49,21 @@ const ScrollStack = ({
   blurAmount = 0,
   useWindowScroll = false,
   onStackComplete
-}) => {
-  const scrollerRef = useRef(null);
+}: ScrollStackProps) => {
+  const scrollerRef = useRef<HTMLDivElement>(null);
   const stackCompletedRef = useRef(false);
-  const lenisRef = useRef(null);
-  const cardsRef = useRef([]);
-  
-  // Armazenar valores atuais e target para interpolação
-  const cardStatesRef = useRef([]);
+  const lenisRef = useRef<Lenis | null>(null);
+  const cardsRef = useRef<HTMLElement[]>([]);
+  const cardStatesRef = useRef<CardState[]>([]);
 
-  const parsePercentage = (value, containerHeight) => {
+  const parsePercentage = (value: string | number, containerHeight: number): number => {
     if (typeof value === 'string' && value.includes('%')) {
       return (parseFloat(value) / 100) * containerHeight;
     }
-    return parseFloat(value);
+    return parseFloat(value.toString());
   };
 
-  const lerp = (start, end, factor) => {
+  const lerp = (start: number, end: number, factor: number): number => {
     return start + (end - start) * factor;
   };
 
@@ -56,7 +81,7 @@ const ScrollStack = ({
       : scrollerRef.current?.querySelector('.scroll-stack-end');
 
     const endElementTop = endElement 
-      ? (useWindowScroll ? endElement.getBoundingClientRect().top + window.scrollY : endElement.offsetTop)
+      ? (useWindowScroll ? endElement.getBoundingClientRect().top + window.scrollY : (endElement as HTMLElement).offsetTop)
       : 0;
 
     cardsRef.current.forEach((card, i) => {
@@ -165,8 +190,8 @@ const ScrollStack = ({
     
     const cards = Array.from(
       useWindowScroll
-        ? document.querySelectorAll('.scroll-stack-card')
-        : scroller?.querySelectorAll('.scroll-stack-card') || []
+        ? document.querySelectorAll<HTMLElement>('.scroll-stack-card')
+        : scroller?.querySelectorAll<HTMLElement>('.scroll-stack-card') || []
     );
 
     if (!cards.length) return;
@@ -175,7 +200,7 @@ const ScrollStack = ({
     cardStatesRef.current = [];
 
     // Estilos iniciais otimizados
-    cards.forEach((card, i) => {
+    cards.forEach((card: HTMLElement, i) => {
       if (i < cards.length - 1) {
         card.style.marginBottom = `${itemDistance}px`;
       }
@@ -186,12 +211,12 @@ const ScrollStack = ({
     });
 
     // Setup Lenis
-    let lenis;
+    let lenis: Lenis | undefined;
     
     if (useWindowScroll) {
       lenis = new Lenis({
         duration: 1.2,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         wheelMultiplier: 1,
         touchMultiplier: 2,
@@ -201,9 +226,9 @@ const ScrollStack = ({
       const content = scroller.querySelector('.scroll-stack-inner');
       lenis = new Lenis({
         wrapper: scroller,
-        content: content,
+        content: content as HTMLElement,
         duration: 1.2,
-        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         wheelMultiplier: 1,
         touchMultiplier: 2,
@@ -211,10 +236,10 @@ const ScrollStack = ({
       });
     }
 
-    lenisRef.current = lenis;
+    lenisRef.current = lenis || null;
 
     // Loop de animação unificado
-    function raf(time) {
+    function raf(time: number) {
       lenis?.raf(time);
       updateCardTransforms();
       requestAnimationFrame(raf);

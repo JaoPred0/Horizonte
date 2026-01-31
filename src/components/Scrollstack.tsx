@@ -52,7 +52,6 @@ const ScrollStack = ({
 }: ScrollStackProps) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const stackCompletedRef = useRef(false);
-  const lenisRef = useRef<Lenis | null>(null);
   const cardsRef = useRef<HTMLElement[]>([]);
   const cardStatesRef = useRef<CardState[]>([]);
 
@@ -238,7 +237,6 @@ const ScrollStack = ({
       });
     }
 
-    lenisRef.current = lenis;
 
     // Loop de animação unificado
     function raf(time: number) {

@@ -1,7 +1,5 @@
-import { useState } from 'react';
 
 export const Contato = () => {
-  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
 
   const contacts = [
     {
@@ -116,8 +114,6 @@ export const Contato = () => {
             <div
               key={contact.id}
               className="contact-card group relative"
-              onMouseEnter={() => setHoveredCard(contact.id)}
-              onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Card Container */}
               <div className="relative bg-white/5 backdrop-blur-md rounded-3xl p-8 md:p-10 border border-white/10 transition-all duration-500 hover:-translate-y-3 hover:bg-white/8 hover:border-white/20 hover:shadow-[0_30px_80px_rgba(0,0,0,0.5)] overflow-hidden">

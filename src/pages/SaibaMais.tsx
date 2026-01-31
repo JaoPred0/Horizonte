@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Download, Globe, Smartphone, Apple, Shield, Mail, Code, MessageCircle, ChevronDown, ChevronUp, ExternalLink, Sparkles, Lock, Users, Zap, CheckCircle2, HelpCircle, Clock, Cpu, Heart, Send, Star } from 'lucide-react';
+import { Download, Globe, Smartphone, Apple, Shield, Mail, ChevronDown, ChevronUp, ExternalLink, Sparkles, Users, Zap, CheckCircle2, HelpCircle, Clock } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const SaibaMais = () => {

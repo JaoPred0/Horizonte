@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MessageCircle, HelpCircle, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const ContatoHome = () => {

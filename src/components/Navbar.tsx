@@ -17,17 +17,11 @@ const COLORS = {
 // Itens do Menu
 const MENU_ITEMS = [
   { label: 'Início', href: '/' },
-  { label: 'Saiba da plataforma', href: '/saiba-mais' },
+  { label: 'Plataforma', href: '/plataforma' },
   { label: 'Integrantes', href: '/integrantes' },
   { label: 'Propostas', href: '/propostas' },
   { label: 'Contato', href: '/contato' },
 ];
-
-// Logo
-const LOGO = {
-  text: 'Logo',
-  icon: 'L',
-};
 
 // Botão CTA
 const CTA_BUTTON = {
@@ -35,7 +29,7 @@ const CTA_BUTTON = {
 };
 
 // Scroll Settings
-const SCROLL_THRESHOLD = 300; // Pixels para ativar o efeito de scroll
+const SCROLL_THRESHOLD = 100; // Pixels para ativar o efeito de scroll
 
 /**
  * ============================================
@@ -85,12 +79,10 @@ const Navbar: React.FC = () => {
             <div className="flex-shrink-0">
               <a href="#" className="flex items-center gap-2 sm:gap-3">
                 <div className={`w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-${COLORS.gradientFrom} to-${COLORS.gradientTo} rounded-lg flex items-center justify-center`}>
-                  <span className="text-white font-bold text-sm sm:text-lg">
-                    {LOGO.icon}
-                  </span>
+                  <img src="./logo.png" alt="" />
                 </div>
                 <span className="text-white font-bold text-lg sm:text-xl md:text-2xl">
-                  {LOGO.text}
+                  Horizonte
                 </span>
               </a>
             </div>

@@ -1,0 +1,90 @@
+[
+  {
+    "title": "1. Esporte, Cultura e Lazer",
+    "icon": "🏃",
+    "accent": "from-blue-400 to-blue-600",
+    "subproposals": [
+      {
+        "title": "Manutenção de materiais esportivos",
+        "description": "As bolas e redes da quadra vêm apresentando desgaste, e muitos estudantes têm comentado sobre isso com mais frequência. Quando os materiais não estão em boas condições, as atividades esportivas acabam sendo prejudicadas e o interesse dos alunos diminui. Por isso, é importante garantir a manutenção e a reposição desses itens, para que as aulas e os momentos de lazer aconteçam de forma mais segura, organizada e motivadora para todos."
+      },
+      {
+        "title": "Melhor organização do uso dos espaços esportivos",
+        "description": "A quadra esportiva da escola é muito usada, e isso às vezes gera conflitos de horário e dificuldade para diferentes turmas ou grupos aproveitarem a quadra no tempo sem ocupação de docente. Uma organização mais clara, com horários definidos e regras de uso, ajuda a evitar esses problemas. Mas proposta em aberto somente se tiver muita demanda de procura."
+      },
+      {
+        "title": "Incentivo a eventos esportivos e recreativos durante os intervalos",
+        "description": "Muitos alunos acabam participando sempre das mesmas modalidades, como futsal, basquete e vôlei, enquanto outras atividades quase não recebem atenção no interclasse. Promover eventos esportivos e recreativos nos intervalos ajuda a diversificar as opções e permite que mais estudantes encontrem algo de que realmente gostem. Além disso, esses momentos deixam o intervalo mais dinâmico e divertido."
+      },
+      {
+        "title": "Espaço de estudos e descanso confortável",
+        "description": "O espaço da sala de PE quase sempre fica cheio, e isso dificulta para quem precisa de um ambiente tranquilo e confortável para estudar. Além disso, muitos estudantes passam o dia inteiro na escola e acabam ficando exaustos, sem um lugar adequado para descansar. Criar um espaço de estudos mais adequado e ampliar as áreas de descanso, com organização e fiscalização, ajudaria a melhorar a rotina dos alunos."
+      },
+      {
+        "title": "Tenda para atividades do Agro",
+        "description": "Nas atividades do agro, os estudantes passam bastante tempo trabalhando debaixo do sol, o que acaba sendo muito cansativo, principalmente para o pessoal da tarde, quando o calor é mais forte. Ter uma tenda no local ajudaria bastante, oferecendo um espaço para que eles possam parar, descansar um pouco e se proteger do sol antes de continuar as atividades."
+      },
+      {
+        "title": "Certificados com horas no interclasse",
+        "description": "Os certificados com horas ajudam a valorizar todos que participam do interclasse, desde os desclassificados até os finalistas. Isso aumenta o engajamento dos alunos, principalmente para as modalidades pouco conhecidas e aumento da participação das mulheres da instituição que tem sido poucas no último ano. E além de tudo, reconhece o esforço de cada equipe e ainda contribui para as horas complementares dos estudantes."
+      }
+    ]
+  },
+  {
+    "title": "2. SocioCultural",
+    "icon": "🎭",
+    "accent": "from-cyan-400 to-cyan-600",
+    "subproposals": [
+      {
+        "title": "Dinâmicas de integração no primeiro dia de aula",
+        "description": "No primeiro dia de aula, muitos alunos ficam retraídos, e isso dificulta a socialização e a criação de vínculos logo no início do ano. As dinâmicas de integração ajudam a quebrar esse gelo, aproximando não só os calouros, mas também os veteranos. Dessa forma, o ambiente fica mais leve, acolhedor e aberto para novas amizades e uma convivência melhor ao longo do ano."
+      },
+      {
+        "title": "Ampliação dos intervalos culturais (inclusive à tarde)",
+        "description": "Ampliar os intervalos culturais permite que mais alunos participem e tenham voz na escolha das músicas e atividades feitas nesses momentos. Além disso, o período da tarde costuma ser esquecido nessas decisões, e incluir os alunos desse turno é importante para que todos se sintam representados e parte da escola. Essa ampliação faz com que todos saiam da rotina monótona e sem graça."
+      },
+      {
+        "title": "Organização de eventos antecipadas baseadas na opinião dos estudantes",
+        "description": "Vamos organizar os eventos culturais da escola de forma mais planejada e levando em conta os gostos e sugestões dos alunos. Assim, cada evento passa a ter a cara da comunidade estudantil, fica mais atrativo e garante que todos se sintam parte do processo. A ideia é ouvir o que os estudantes realmente querem e usar essas opiniões para construir eventos mais criativos, organizados e participativos."
+      }
+    ]
+  },
+  {
+    "title": "3. Saúde & Meio Ambiente",
+    "icon": "🌱",
+    "accent": "from-sky-400 to-sky-600",
+    "subproposals": [
+      {
+        "title": "Organização dos produtos de higiene nos banheiros",
+        "description": "Organizar os produtos de higiene nos banheiros femininos e masculinos, junto com uma reposição contínua e fiscalização, garante que esses itens estejam sempre disponíveis e em bom estado. Muitas vezes os produtos acabam faltando, ficando espalhados ou são usados de forma inadequada. Com uma organização melhor, reposição regular e fiscalização responsável, os banheiros se tornam mais limpos, funcionais e respeitosos para todos."
+      },
+      {
+        "title": "Semana do Meio Ambiente: plantio de árvores, flores e mutirões",
+        "description": "Realizar a Semana do Meio Ambiente com atividades como plantio de árvores e flores, mutirões de limpeza e ações educativas ajuda a envolver toda a escola em práticas mais conscientes e sustentáveis. Essas atividades fortalecem a responsabilidade ambiental, deixam a escola mais bonita e criam um senso de união entre os estudantes."
+      },
+      {
+        "title": "Intervalos de feiras para o agro com certificados",
+        "description": "Oferecer dois a três intervalos exclusivos para que o pessoal do agro apresente seus projetos é uma forma de dar mais visibilidade ao trabalho que eles realizam ao longo do ano. Muitas vezes, esses projetos acabam passando despercebidos, mesmo sendo importantes e exigindo dedicação. Com esses intervalos de feira, os alunos podem mostrar suas produções e envolver a escola no que é feito na área."
+      }
+    ]
+  },
+  {
+    "title": "4. Relações Educacionais",
+    "icon": "📚",
+    "accent": "from-indigo-400 to-indigo-600",
+    "subproposals": [
+      {
+        "title": "Apresentar os clubes aos calouros e fortalecer nos dois turnos",
+        "description": "Apresentar os clubes aos calouros ajuda os novos estudantes a conhecerem tudo o que a escola oferece e a se envolverem mais rápido nas atividades. Além disso, é importante abrir mais oportunidades de novos clubes, especialmente no período da tarde, que costuma ter menos opções. Também buscamos recursos para trazer clubes que funcionam só à tarde para o turno da manhã, permitindo que quem estuda à tarde participe no contraturno."
+      },
+      {
+        "title": "Espaço de denúncias anônimas e maior disponibilidade do Grêmio",
+        "description": "Criar um espaço de denúncias anônimas e sugestões construtivas permite que os estudantes expressem preocupações e ideias sem medo de exposição. Isso ajuda a identificar problemas que muitas vezes não chegam ao Grêmio de forma direta. Além disso, manter o Grêmio mais disponível para ouvir os alunos fortalece a confiança, aproxima a gestão estudantil da comunidade e garante que as decisões sejam baseadas no que os estudantes realmente vivem e precisam."
+      },
+      {
+        "title": "Visitas técnicas para os cursos de informática",
+        "description": "Implementar mais visitas técnicas para os cursos de Informática, já que este é atualmente o curso com menor acesso a essas atividades. A proposta busca ampliar a vivência prática dos estudantes e proporcionar experiências de aprendizado fora da sala de aula, conectando teoria e prática de forma efetiva."
+      }
+    ]
+  }
+]

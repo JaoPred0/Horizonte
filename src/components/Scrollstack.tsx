@@ -8,7 +8,7 @@ interface ScrollStackItemProps {
 
 export const ScrollStackItem = ({ children, itemClassName = '' }: ScrollStackItemProps) => (
   <div
-    className={`scroll-stack-card relative w-full h-80 my-8 p-12 rounded-[40px] shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top ${itemClassName}`.trim()}
+    className={`scroll-stack-card relative w-full my-4 sm:my-6 md:my-8 p-4 sm:p-8 md:p-12 rounded-[20px] sm:rounded-[30px] md:rounded-[40px] shadow-[0_0_20px_rgba(0,0,0,0.1)] sm:shadow-[0_0_25px_rgba(0,0,0,0.1)] md:shadow-[0_0_30px_rgba(0,0,0,0.1)] box-border origin-top ${itemClassName}`.trim()}
   >
     {children}
   </div>
@@ -70,6 +70,7 @@ const ScrollStack = ({
   const updateCardTransforms = useCallback(() => {
     if (!cardsRef.current.length) return;
 
+    const isMobile = window.innerWidth < 768;
     const scrollTop = useWindowScroll ? window.scrollY : scrollerRef.current?.scrollTop || 0;
     const containerHeight = useWindowScroll ? window.innerHeight : scrollerRef.current?.clientHeight || 0;
     
@@ -105,10 +106,10 @@ const ScrollStack = ({
       // Valores target
       const targetScale = baseScale + i * itemScale;
       const targetScaleValue = 1 - scaleProgress * (1 - targetScale);
-      const targetRotation = rotationAmount ? i * rotationAmount * scaleProgress : 0;
+      const targetRotation = isMobile ? 0 : (rotationAmount ? i * rotationAmount * scaleProgress : 0); // Desabilitar rotação no mobile
 
       let targetBlur = 0;
-      if (blurAmount) {
+      if (!isMobile && blurAmount) { // Desabilitar blur no mobile
         let topCardIndex = 0;
         for (let j = 0; j < cardsRef.current.length; j++) {
           const jCard = cardsRef.current[j];
@@ -146,8 +147,8 @@ const ScrollStack = ({
         };
       }
 
-      // Interpolação suave (LERP) - quanto menor o valor, mais suave
-      const lerpFactor = 0.15;
+      // Interpolação suave (LERP) - ajustar para mobile para melhor performance
+      const lerpFactor = isMobile ? 0.1 : 0.15;
       
       cardStatesRef.current[i].translateY = lerp(cardStatesRef.current[i].translateY, targetTranslateY, lerpFactor);
       cardStatesRef.current[i].scale = lerp(cardStatesRef.current[i].scale, targetScaleValue, lerpFactor);
@@ -156,7 +157,7 @@ const ScrollStack = ({
 
       // Aplicar transformações
       const currentState = cardStatesRef.current[i];
-      const transform = `translate3d(0, ${currentState.translateY.toFixed(2)}px, 0) scale(${currentState.scale.toFixed(4)}) rotate(${currentState.rotation.toFixed(2)}deg)`;
+      const transform = `translate3d(0, ${currentState.translateY.toFixed(2)}px, 0) rotate(${currentState.rotation.toFixed(2)}deg)`;
       const filter = currentState.blur > 0.01 ? `blur(${currentState.blur.toFixed(2)}px)` : 'none';
 
       card.style.transform = transform;
@@ -187,6 +188,7 @@ const ScrollStack = ({
 
   useLayoutEffect(() => {
     const scroller = scrollerRef.current;
+    const isMobile = window.innerWidth < 768;
     
     const cards = Array.from(
       useWindowScroll
@@ -210,33 +212,33 @@ const ScrollStack = ({
       card.style.transform = 'translate3d(0, 0, 0)';
     });
 
-    // Setup Lenis
-    let lenis: Lenis | undefined;
+    // Setup Lenis com ajustes para mobile
+    let lenis: Lenis | null;
     
     if (useWindowScroll) {
       lenis = new Lenis({
-        duration: 1.2,
+        duration: isMobile ? 0.8 : 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         wheelMultiplier: 1,
-        touchMultiplier: 2,
-        lerp: 0.1
+        touchMultiplier: isMobile ? 1.5 : 2,
+        lerp: isMobile ? 0.05 : 0.1
       });
     } else if (scroller) {
       const content = scroller.querySelector('.scroll-stack-inner');
       lenis = new Lenis({
         wrapper: scroller,
         content: content as HTMLElement,
-        duration: 1.2,
+        duration: isMobile ? 0.8 : 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         wheelMultiplier: 1,
-        touchMultiplier: 2,
-        lerp: 0.1
+        touchMultiplier: isMobile ? 1.5 : 2,
+        lerp: isMobile ? 0.05 : 0.1
       });
     }
 
-    lenisRef.current = lenis || null;
+    lenisRef.current = lenis;
 
     // Loop de animação unificado
     function raf(time: number) {
@@ -262,7 +264,7 @@ const ScrollStack = ({
 
   return (
     <div className={containerClassName} ref={scrollerRef}>
-      <div className="scroll-stack-inner pt-[20vh] sm:px-8 md:px-20 pb-[20rem] min-h-screen">
+      <div className="scroll-stack-inner pt-[10vh] sm:pt-[15vh] md:pt-[20vh] px-4 sm:px-8 md:px-20 pb-[10rem] sm:pb-[15rem] md:pb-[20rem] min-h-screen">
         {children}
         <div className="scroll-stack-end w-full h-px" />
       </div>

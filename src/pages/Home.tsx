@@ -1,4 +1,5 @@
 import { AnimacaoHome } from '@/components/AnimacaoHome';
+import { ContatoHome } from '@/components/ContatoHome';
 import HeroSection from '@/components/HeroSection';
 import IntegrantesHome from '@/components/IntegrantesHome';
 import PropostasHome from '@/components/PropostasHome';
@@ -15,10 +16,14 @@ export const Home = () => {
                 <IntegrantesHome />
             </div>
 
-
             <div className="w-full">
                 <PropostasHome />
             </div>
+
+            <div className="w-full">
+                <ContatoHome />
+            </div>
+
             <AnimacaoHome />
         </div>
     );

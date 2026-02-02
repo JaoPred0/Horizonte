@@ -233,10 +233,10 @@ export const SaibaMais = () => {
                   <h3 className="text-xl font-semibold">Navegador</h3>
                 </div>
                 <p className="text-gray-400 mb-4">Acesse direto do seu navegador</p>
-                <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:gap-3 shadow-lg hover:shadow-blue-500/50">
+                <a href='https://gremio-horizonte-app.vercel.app/' className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:gap-3 shadow-lg hover:shadow-blue-500/50">
                   <ExternalLink className="w-5 h-5" />
                   Abrir no Navegador
-                </button>
+                </a>
               </div>
             </div>
 

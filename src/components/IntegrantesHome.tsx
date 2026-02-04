@@ -13,7 +13,7 @@ const teamMembers = [
     image: './integrantes/PEDRO-ISSAMU.jpg',
   },
   {
-    name: 'EMILLY RIBEIRO.jpg',
+    name: 'EMILLY RIBEIRO',
     role: 'Secretária Geral',
     image: './integrantes/EMILLY-RIBEIRO.jpg',
   },
